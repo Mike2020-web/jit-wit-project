@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>New Sails App</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- mobile metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <!-- site metas -->
+  <title>JI-WiT</title>
+  <meta name="keywords" content="rfid">
+  <meta name="description" content="射頻識別技術">
+  <meta name="author" content="">
+
+  <!-- Viewport mobile tag for sensible mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <% /* If you want to discourage search engines from indexing this site, uncomment the following line: */%>
+    <% /* <meta name="robots" content="noindex"> */%>
+
+
+      <!--
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+        By default, stylesheets from your `assets/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+
+        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
+
+      <!--STYLES-->
+      <link rel="stylesheet" href="/styles/importer.css">
+      <link rel="stylesheet" href="/styles/responsive.css">
+      <link rel="stylesheet" href="/styles/style.css">
+      <!--STYLES END-->
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body class="main-layout">
+
+  <header>
+    <!-- header inner -->
+    <div class="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+            <div class="full">
+              <div class="center-desk">
+                <div class="logo">
+                  <a href="/">JI</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+            <nav class="navigation navbar navbar-expand-md navbar-dark ">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+                aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarsExample04">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a id="nav1" class="nav-link" href="/">主頁</a>
+                  </li>
+        
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      RFID產品
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="/user/pt1">RFID標籤</a>
+                      <a class="dropdown-item" href="/user/pt2">RFID硬件</a>
+                    </div>
+                  </li>
+
+                  <li class="nav-item">
+                    <a id="nav2" class="nav-link" href="/user/dev"> 軟件系統開發 </a>
+                  </li>
+
+
+                  <li class="nav-item">
+                    <a id="nav3" class="nav-link" href="#service">應用案例</a>
+                  </li>
+                  <li class="nav-item">
+                    <a id="nav4" class="nav-link" href="#contact">聯絡我們</a>
+                  </li>
+                  <li class="nav-item">
+                    <a id="nav5" class="nav-link" href="/customer/list">客戶名單</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/login" id="login">登入</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <form id='my_form' action="/user/logout" method="post">
+                      <a id="logout" class="nav-link" href="javascript:{}"
+                        onclick="document.getElementById('my_form').submit(); return false;">登出</a>
+                    </form>
+                  </li>
+
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- end header inner -->
+  <!-- end header -->
+  <%- body %>
+
+
+    <script>
+      var logout = document.getElementById("logout");
+      logout.style.display = "none";
+
+      var login = document.getElementById("login");
+      login.style.display = "";
+
+      var n1 = document.getElementById("nav1");
+      n1.style.display = ""
+
+      var n2 = document.getElementById("nav2");
+      n2.style.display = ""
+
+      var n3 = document.getElementById("nav3");
+      n3.style.display = ""
+
+      var n4 = document.getElementById("nav4");
+      n4.style.display = ""
+
+      var n5 = document.getElementById("nav5");
+      n5.style.display = "none"
+
+      // let user={
+      //   username:"",
+      //   password:"",
+      // }
+      // console.log(user)
+      // user="<%=req.session.user%>"
+      // console.log(user)
+
+      if ("<%=session.username%>") {
+        logout.style.display = "";
+        login.style.display = "none";
+
+        n1.style.display = "none"
+        n2.style.display = "none"
+        n3.style.display = "none"
+        n4.style.display = "none"
+        n5.style.display = ""
+
+
+      }
+    </script>
+
+
+
+    <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like React, Vue.js, Angular, Ember, and Backbone
+        require that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+
+        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different view engine (handlebars, dust, pug/jade, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+    <!--TEMPLATES-->
+    <!--TEMPLATES END-->
+
+
+    <!--
+        Server-side View Locals
+        ========================
+
+        Sometimes, it's convenient to get access to your server-side view locals from
+        client-side JavaScript.  This can improve page load times, remove the need for
+        extra AJAX requests, and make your client-side code easier to understand and
+        to maintain.  Sails provides a simple mechanism for accessing dynamic view
+        locals: the "exposeLocalsToBrowser()" view partial.
+
+        For more information on using this built-in feature, see:
+        https://sailsjs.com/docs/concepts/views/locals#?escaping-untrusted-data-using-exposelocalstobrowser
+
+    -->
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can always bring in JS files manually with `script` tags, or asynchronously
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can
+      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, files in your `assets/js` folder are included here
+      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+      and concatenated into a single file.
+
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+
+          + Change the order of your scripts
+          + Import scripts from other directories
+          + Use a different preprocessor, like TypeScript
+
+    -->
+
+    <!--SCRIPTS-->
+    <script src="/dependencies/sails.io.js"></script>
+    <!--SCRIPTS END-->
+</body>
+
+</html>

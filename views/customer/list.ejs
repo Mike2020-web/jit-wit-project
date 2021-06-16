@@ -1,0 +1,37 @@
+<div class="table-responsive">
+  <table class="table">
+    <tr>
+      <td><b>Name</b></td>
+      <td><b>Email</b></td>
+      <td><b>Tel:</b></td>
+      <td><b>Message</b></td>
+      <td><b></b></td>
+    </tr>
+    <% customers.forEach( function(c) { %>
+
+      <tr>
+        <td>
+          <%=c.name%>
+        </td>
+        <td>
+          <%= c.email %>
+        </td>
+        <td>
+          <%= c.phone %>
+        </td>
+        <td>
+          <%= c.message %>
+        </td>
+        <td>
+          <form id='d_form' action="/customer/delete/<%=c.id%>" method="post">
+            <a id="logout" class="nav-link" href="javascript:{}"
+              onclick="document.getElementById('d_form').submit(); return false;">
+              <i class="fas fa-trash-alt"></i>
+            </a>
+          </form>
+      </tr>
+
+      <% }); %>
+
+  </table>
+</div>
