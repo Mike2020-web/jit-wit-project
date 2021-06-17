@@ -9,7 +9,7 @@
  * https://sailsjs.com/config/bootstrap
  */
 
-module.exports.bootstrap = async function() {
+module.exports.bootstrap = async function () {
 
   // By convention, this is a good place to set up fake data during development.
   //
@@ -27,14 +27,22 @@ module.exports.bootstrap = async function() {
   // ]);
   // ```
 
+  // sails.hooks['email-without-ejs'].send({
+  //   to: "mike.ko@ji-wit.com",
+  //   subject: "Hi there",
+  //   html: 'uhkbiubui'
+  // }, function (err) { console.log(err || "It worked!") })
+
   if (await User.count() > 0) {
     return;
   }
 
   await User.createEach([
-    { username: 'admin', password: '123456'},
-    { username: 'boss', password: '123456'},
+    { username: 'admin', password: '123456' },
+    { username: 'boss', password: '123456' },
     // etc.
   ]);
+
+
 
 };

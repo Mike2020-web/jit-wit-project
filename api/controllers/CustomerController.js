@@ -14,47 +14,25 @@ module.exports = {
 
         await Customer.create(req.body);
 
-        var name=req.body.name;
-        var email=req.body.email;
-        var phone=req.body.phone;
-        var message=req.body.message;
+        var name = req.body.name;
+        var email = req.body.email;
+        var phone = req.body.phone;
+        var message = req.body.message;
 
         // send email
+        sails.hooks['email-without-ejs'].send({
+            to: "Samuel.po@ji-wit.com, daniel.lau@ji-wit.com",
+            subject: "New Customer",
+            html: name +"<br>"+
+                email+"<br>"+
+                phone+"<br>"+
+                message+"<br>",
+        }, function (err) { console.log(err || "It worked!") })
 
-        var nodemailer = require('nodemailer');
 
-
-         var transporter = nodemailer.createTransport({
-            service: 'gmail',
-
-            auth: {
-                user: 'mikemikeko2017@gmail.com',
-                pass: '67424700'
-            }
-        });
-
-        // const transporter = nodemailer.createTransport({
-        //     host: 'smtp.ji-wit.com',
-        //     port: 587,
-        //     auth: {
-        //         user: 'mike.ko@ji-wit.com',
-        //         pass: 'Mike_Ko123'
-        //     }
-        // });
-
-        var mailOptions = {
-            from: 'mikemikeko2017@gmail.com',
-            to: 'mike.ko@ji-wit.com',
-            subject: 'new customer',
-            text: name +"\n"+
-            email+"\n"+
-            phone+"\n"+
-            message+"\n"
-            ,
-        };
 
         // var mailOptions = {
-        //     from: 'mike.ko@ji-wit.com',
+        //     from: 'mikemikeko2017@gmail.com',
         //     to: 'mike.ko@ji-wit.com',
         //     subject: 'new customer',
         //     text: name +"\n"+
@@ -64,13 +42,13 @@ module.exports = {
         //     ,
         // };
 
-        transporter.sendMail(mailOptions, function (error, info) {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log('Email sent: ' + info.response);
-            }
-        });
+        // transporter.sendMail(mailOptions, function (error, info) {
+        //     if (error) {
+        //         console.log(error);
+        //     } else {
+        //         console.log('Email sent: ' + info.response);
+        //     }
+        // });
 
         return res.redirect("/");
     },
