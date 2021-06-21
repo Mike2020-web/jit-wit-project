@@ -125,9 +125,9 @@ module.exports = {
         
         return res.view('user/pt27');
     },
-    app: async function (req, res) {
+    old: async function (req, res) {
         
-        return res.view('user/app');
+        return res.view('user/old');
     },
 
 

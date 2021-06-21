@@ -72,7 +72,7 @@ module.exports.routes = {
   'GET /user/pt25': 'UserController.pt25',
   'GET /user/pt26': 'UserController.pt26',
   'GET /user/pt27': 'UserController.pt27',
-  'GET /user/app': 'UserController.app',
+  'GET /user/old': 'UserController.old',
 
   'POST /customer/create': 'CustomerController.create',
   'GET /customer/list': 'CustomerController.list',
