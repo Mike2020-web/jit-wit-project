@@ -197,6 +197,14 @@
         float: right;
     }
 
+    iframe{
+        width: 100% !important;
+
+    }
+
+    /* .row.justify-content-center .col-md-6 img{
+        height: 100px !important;
+    } */
     /* .page1 h1{
         font-size: 28px !important;
     } */
