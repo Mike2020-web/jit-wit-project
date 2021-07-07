@@ -44,6 +44,26 @@ module.exports = {
         return res.view('user/p7');
     },
 
+    p8: async function (req, res) {
+        
+        return res.view('user/p8');
+    },
+
+    p9: async function (req, res) {
+        
+        return res.view('user/p9');
+    },
+
+    p10: async function (req, res) {
+        
+        return res.view('user/p10');
+    },
+
+    p11: async function (req, res) {
+        
+        return res.view('user/p11');
+    },
+
     dev: async function (req, res) {
         
         return res.view('user/dev');

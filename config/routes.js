@@ -48,6 +48,10 @@ module.exports.routes = {
   'GET /user/p5': 'UserController.p5',
   'GET /user/p6': 'UserController.p6',
   'GET /user/p7': 'UserController.p7',
+  'GET /user/p8': 'UserController.p8',
+  'GET /user/p9': 'UserController.p9',
+  'GET /user/p10': 'UserController.p10',
+  'GET /user/p11': 'UserController.p11',
 
 
   'GET /user/dev': 'UserController.dev',
